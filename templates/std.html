@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fer & Job</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Nuestra boda</h1>
+    </header>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#556B2F"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
+        <h2>Fer & Job</h2>
+    </div>
+    <div class="countdown_zone" id="countdown">
+        <h2>Nuestra boda</h2>
+    </div>
+    <script>
+        const targetDate = new Date(2025, 3, 19, 17, 30, 0);
+        console.log(targetDate);
+
+        function updateCountdown(){
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff <= 0){
+                document.getElementById('countdown').innerHTML = '<span class="completed">¡El momento ha llegado! </span>';
+                clearInterval(interval);
+                return;
+            }
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('countdown').innerHTML = 
+            `Faltan: ${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        }
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+    </script>
+    <div class="img_both">
+        <img src="static/photo3c.jpg" alt="">
+    </div>
+    <p>La misericordia y la verdad se encontraron;
+        La justicia y la paz se besaron.
+        La verdad brotará de la tierra,
+        Y la justicia mirará desde los cielos.
+        Jehová dará también el bien,
+        Y nuestra tierra dará su fruto.
+        La justicia irá delante de él,
+        Y sus pasos nos pondrá por camino.
+    </p>
+    <h3>Salmo 85:10-13</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#556B2F"><path d="M620-320v-109l-45-81q-7 5-11 13t-4 17v229L663-80h-93l-90-148v-252q0-31 15-57t41-43l-56-99q-20-38-17.5-80.5T495-832l68-68 276 324 41 496h-80l-39-464-203-238-6 6q-10 10-11.5 23t4.5 25l155 278v130h-80Zm-360 0v-130l155-278q6-12 4.5-25T408-776l-6-6-203 238-39 464H80l41-496 276-324 68 68q30 30 32.5 72.5T480-679l-56 99q26 17 41 43t15 57v252L390-80h-93l103-171v-229q0-9-4-17t-11-13l-45 81v109h-80Z"/></svg>
+    <div class="cartulina" id="cartulina">
+        <div class="text">
+            <p>Caminemos juntos, porque juntos no habrá camino por el que nos perdamos, montaña que no escalemos, adversidad que no enfrentemos, ni rio que no nademos.</p>
+            <p>Sigamos escribiendo nuestra historia, con letras que trasciendan años y generaciones. Así como una cartulina fue el inicio de una de nuestras más grandes celebraciones.</p>
+        </div>
+        <div id="img_both" class="img_both">
+            <img src="static\photo4c.jpg" alt="">
+        </div>
+    </div>
+    
+    <h2>Nuestra vida juntos comienza hoy</h2>
+    <p>Su presencia es lo más importante para nosotros, y nos gustaría que dejaran grabado un poco de ella en unas palabras.</p>
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#556B2F"><path d="M480-160q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740v484q51-32 107-48t113-16q36 0 70.5 6t69.5 18v-480q15 5 29.5 10.5T898-752q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59Zm80-200v-380l200-200v400L560-360Zm-160 65v-396q-33-14-68.5-21.5T260-720q-37 0-72 7t-68 21v397q35-13 69.5-19t70.5-6q36 0 70.5 6t69.5 19Zm0 0v-396 396Z"/></svg>
+    <p>Si deseas dejarnos un mensaje por favor selecciona a quién y escríbelo, tus palabras nos llenan el corazón</p>
+    <form action="" method="post">
+        <select name="fiance" id="fiance">
+            <option value="">--Selecciona tu destinatario--</option>
+            <option value="Fer">Fer</option>
+            <option value="Job">Job</option>
+            <option value="Fer & Job">Fer & Job</option>
+        </select>
+        <textarea name="congrat" id="congrat" placeholder="Escribe aquí tu mensaje"></textarea>
+        <label for="person">Atentamente: </label>
+        <input type="text" name="person" id="person" placeholder="Ej. Familia Navarrete García">
+        <button type="submit"> Enviar mensaje</button>
+    </form>
+</body>
+</html>
