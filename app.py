@@ -14,6 +14,9 @@ class Congrats(db.Model):
     congrat = db.Column(db.String(1000), nullable = False)
     person = db.Column(db.String(50), nullable = False)
 
+with app.app_context():
+    db.create_all()
+
 @app.route('/')
 def home():
     return render_template('std.html')
